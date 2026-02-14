@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: radial-gradient(circle at 50% 40%, #2a0a1f, #0a0010 70%);
+}
+
+/* Brillo ambiental detrás de la flor */
+body::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 105, 180, 0.1), transparent 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 1;
+}
+
+.mensaje {
+    position: absolute;
+    top: 8%;
+    text-align: center;
+    font-size: 1.8rem;
+    color: #ffb6d9;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: fadeIn 3s ease forwards 1.5s;
+    text-shadow: 0 0 10px rgba(255, 182, 217, 0.3);
+    z-index: 3;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.contenedor {
+    width: 600px;
+    height: 600px;
+    z-index: 2;
+}
+
+/* Estilo de los pétalos de la lluvia */
+.petal-rain {
+    position: fixed;
+    background-color: #ffc1e3;
+    width: 15px;
+    height: 20px;
+    border-radius: 50% 0 50% 50%;
+    pointer-events: none;
+    z-index: 999;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(720deg) translateX(120px);
+        opacity: 0;
+    }
+}
