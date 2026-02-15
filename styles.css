@@ -10,7 +10,7 @@ body {
     background: radial-gradient(circle at 50% 40%, #2a0a1f, #0a0010 70%);
 }
 
-/* Brillo ambiental detrás de la flor */
+
 body::before {
     content: "";
     position: absolute;
@@ -45,7 +45,7 @@ body::before {
     z-index: 2;
 }
 
-/* Estilo de los pétalos de la lluvia */
+
 .petal-rain {
     position: fixed;
     background-color: #ffc1e3;
@@ -69,4 +69,5 @@ body::before {
         transform: translateY(110vh) rotate(720deg) translateX(120px);
         opacity: 0;
     }
+
 }
