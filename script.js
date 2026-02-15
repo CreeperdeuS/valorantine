@@ -3,7 +3,7 @@ const centerX = 300;
 const centerY = 300;
 let delay = 0;
 
-// 1. Crear un filtro de sombra para dar relieve
+
 const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
 defs.innerHTML = `
   <filter id="sombraPetalo" x="-20%" y="-20%" width="140%" height="140%">
@@ -45,15 +45,15 @@ function crearPetaloAnimado(angulo, largo, ancho, color, opacidad) {
           ${centerX} ${centerY}
     `);
 
-    // --- MEJORAS DE DEFINICIÓN ---
+   
     path.setAttribute("fill", color);
     path.setAttribute("fill-opacity", opacidad);
     
-    // El stroke ahora es un rosa mucho más oscuro para separar los bordes
+ 
     path.setAttribute("stroke", "#4a001f"); 
     path.setAttribute("stroke-width", "0.4");
     
-    // Aplicamos el filtro de relieve
+
     path.setAttribute("filter", "url(#sombraPetalo)");
 
     grupoEscala.appendChild(path);
@@ -74,14 +74,13 @@ function crearCapa(cantidad, largo, ancho, color, opacidad) {
     }
 }
 
-// Colores con mayor contraste entre sí
-crearCapa(12, 240, 115, "#ff8bb4", 0.6); // Más claro
+crearCapa(12, 240, 115, "#ff8bb4", 0.6); 
 crearCapa(15, 200, 105, "#f06292", 0.7); 
 crearCapa(18, 160, 90, "#e91e63", 0.8);
 crearCapa(22, 120, 70, "#c2185b", 0.9);
-crearCapa(25, 80, 50, "#880e4f", 1.0); // Mucho más oscuro en el centro
+crearCapa(25, 80, 50, "#880e4f", 1.0); 
 
-// Centro con brillo fuerte
+
 setTimeout(() => {
     for(let i = 0; i < 25; i++) {
         const p = document.createElementNS("http://www.w3.org/2000/svg", "circle");
@@ -90,7 +89,7 @@ setTimeout(() => {
         p.setAttribute("cx", centerX + Math.cos(ang) * dist);
         p.setAttribute("cy", centerY + Math.sin(ang) * dist);
         p.setAttribute("r", 1.5 + Math.random() * 2);
-        p.setAttribute("fill", "#fff176"); // Amarillo vibrante
+        p.setAttribute("fill", "#fff176"); 
         p.setAttribute("stroke", "#fbc02d");
         p.setAttribute("stroke-width", "0.5");
         p.style.transformOrigin = `${centerX}px ${centerY}px`;
@@ -101,7 +100,7 @@ setTimeout(() => {
     }
 }, delay);
 
-// Lluvia de pétalos (mismo código anterior)
+
 function generarLluvia() {
     const p = document.createElement("div");
     p.className = "petal-rain";
@@ -112,4 +111,5 @@ function generarLluvia() {
     document.body.appendChild(p);
     setTimeout(() => p.remove(), duracion * 1000);
 }
+
 setInterval(generarLluvia, 400);
